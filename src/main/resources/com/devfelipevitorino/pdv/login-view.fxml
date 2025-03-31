@@ -32,21 +32,28 @@
                   <Image url="@images/pagina-de-login-4468581-3783954.png" />
                </image>
             </ImageView>
-            <Button fx:id="btn_entrar" focusTraversable="false" layoutX="202.0" layoutY="359.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="162.0" text="Entrar" textAlignment="CENTER" textFill="#6b6b6b" textOverrun="LEADING_ELLIPSIS">
+            <Label layoutX="62.0" layoutY="243.0" text="Usuário" textFill="#6b6b6b">
                <font>
-                  <Font name="Noto Sans Lao Bold" size="18.0" />
+                  <Font name="Noto Sans Lao Bold" size="16.0" />
                </font>
+            </Label>
+            <TextField fx:id="username_field" focusTraversable="false" layoutX="133.0" layoutY="240.0" prefHeight="33.0" prefWidth="187.0">
                <effect>
                   <DropShadow>
                      <color>
-                        <Color opacity="0.19847328960895538" />
+                        <Color opacity="0.19465649127960205" />
                      </color>
                   </DropShadow>
                </effect>
-            </Button>
-            <Label fx:id="label_esqueceu" layoutX="158.0" layoutY="434.0" text="Esqueceu a senha?" textFill="#6b6b6b">
+            </TextField>
+            <ImageView fitHeight="21.0" fitWidth="30.0" layoutX="291.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/user-login-2.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="62.0" layoutY="284.0" text="Senha" textFill="#6b6b6b">
                <font>
-                  <Font name="Noto Sans Lao Regular" size="10.0" />
+                  <Font name="Noto Sans Lao Bold" size="16.0" />
                </font>
             </Label>
             <PasswordField fx:id="password_field" focusTraversable="false" layoutX="133.0" layoutY="281.0" prefHeight="33.0" prefWidth="187.0">
@@ -58,41 +65,12 @@
                   </DropShadow>
                </effect>
             </PasswordField>
-            <TextField fx:id="username_field" focusTraversable="false" layoutX="133.0" layoutY="240.0" prefHeight="33.0" prefWidth="187.0">
-               <effect>
-                  <DropShadow>
-                     <color>
-                        <Color opacity="0.19465649127960205" />
-                     </color>
-                  </DropShadow>
-               </effect>
-            </TextField>
-            <Label layoutX="62.0" layoutY="243.0" text="Usuário" textFill="#6b6b6b">
-               <font>
-                  <Font name="Noto Sans Lao Bold" size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="62.0" layoutY="284.0" text="Senha" textFill="#6b6b6b">
-               <font>
-                  <Font name="Noto Sans Lao Bold" size="16.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="21.0" fitWidth="30.0" layoutX="291.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/user-login-2.png" />
-               </image>
-            </ImageView>
             <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="291.0" layoutY="287.0" opacity="0.7" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/password-icon-2048x2048-db92yrsb.png" />
                </image>
             </ImageView>
-            <Label fx:id="label_user_senha_incorretos" layoutX="157.0" layoutY="321.0" opacity="0.7" text="Usuário ou senha incorretos." textFill="RED">
-               <font>
-                  <Font name="Noto Sans Lao Regular" size="12.0" />
-               </font>
-            </Label>
-            <Button fx:id="btn_cancelar" focusTraversable="false" layoutX="29.0" layoutY="359.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="162.0" text="Cancelar" textAlignment="CENTER" textFill="#6b6b6b" textOverrun="LEADING_ELLIPSIS">
+            <Button fx:id="btn_entrar" onAction="#entrarNoSistema" focusTraversable="false" layoutX="202.0" layoutY="359.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="162.0" text="Entrar" textAlignment="CENTER" textFill="#6b6b6b" textOverrun="LEADING_ELLIPSIS">
                <font>
                   <Font name="Noto Sans Lao Bold" size="18.0" />
                </font>
@@ -104,6 +82,33 @@
                   </DropShadow>
                </effect>
             </Button>
+            <Button fx:id="btn_cancelar" onAction="#fecharTelaDeLogin" focusTraversable="false" layoutX="29.0" layoutY="359.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="162.0" text="Sair" textAlignment="CENTER" textFill="#6b6b6b" textOverrun="LEADING_ELLIPSIS">
+               <font>
+                  <Font name="Noto Sans Lao Bold" size="18.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color opacity="0.19847328960895538" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
+            <Label fx:id="label_esqueceu" onMouseClicked="#esqueceuSenha" layoutX="275.0" layoutY="434.0" text="Esqueceu a senha?" textFill="#6b6b6b" underline="true">
+               <font>
+                  <Font name="Noto Sans Lao Regular" size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_cadastrar" onMouseClicked="#cadastrar" layoutX="29.0" layoutY="434.0" text="Criar uma nova conta" textFill="#6b6b6b" underline="true">
+               <font>
+                  <Font name="Noto Sans Lao Regular" size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_user_senha_incorretos" layoutX="157.0" layoutY="321.0" opacity="0.7" text="Usuário ou senha incorretos." textFill="RED">
+               <font>
+                  <Font name="Noto Sans Lao Regular" size="12.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>

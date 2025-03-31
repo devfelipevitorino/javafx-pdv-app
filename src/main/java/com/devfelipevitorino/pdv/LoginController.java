@@ -18,4 +18,19 @@ public class LoginController {
         stage.close();
     }
 
+    @FXML
+    private void entrarNoSistema() {
+        System.out.println("Clicando no botão de entrar");
+    }
+
+    @FXML
+    private void cadastrar() {
+        System.out.println("Clicando no label de cadastrar");
+    }
+
+    @FXML
+    private void esqueceuSenha() {
+        System.out.println("Clicando no label de esqueceu senha");
+    }
+
 }
