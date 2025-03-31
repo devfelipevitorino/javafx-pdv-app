@@ -13,7 +13,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="505.0" prefWidth="432.0" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.devfelipevitorino.pdv.LoginController">
+<VBox alignment="CENTER" prefHeight="505.0" prefWidth="432.0" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.devfelipevitorino.pdv.Login.LoginController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -94,12 +94,12 @@
                   </DropShadow>
                </effect>
             </Button>
-            <Label fx:id="label_esqueceu" onMouseClicked="#esqueceuSenha" layoutX="275.0" layoutY="434.0" text="Esqueceu a senha?" textFill="#6b6b6b" underline="true">
+            <Label fx:id="label_esqueceu" style="-fx-cursor: hand;" onMouseClicked="#esqueceuSenha" layoutX="275.0" layoutY="434.0" text="Esqueceu a senha?" textFill="#6b6b6b" underline="true">
                <font>
                   <Font name="Noto Sans Lao Regular" size="10.0" />
                </font>
             </Label>
-            <Label fx:id="label_cadastrar" onMouseClicked="#cadastrar" layoutX="29.0" layoutY="434.0" text="Criar uma nova conta" textFill="#6b6b6b" underline="true">
+            <Label fx:id="label_cadastrar" style="-fx-cursor: hand;" onMouseClicked="#cadastrar" layoutX="29.0" layoutY="434.0" text="Criar uma nova conta" textFill="#6b6b6b" underline="true">
                <font>
                   <Font name="Noto Sans Lao Regular" size="10.0" />
                </font>
