@@ -28,4 +28,22 @@ public class UsuarioDAO {
         }
     }
 
+    public boolean salvarUsuario(String nome, String senha) {
+        String sql = "INSERT INTO usuarios (nome, senha) VALUES (?, ?)";
+
+        try (Connection conn = Database.conectar();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, nome);
+            stmt.setString(2, senha);
+            stmt.executeUpdate();
+            System.out.println("Usuário cadastrado com sucesso!");
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Erro ao cadastrar usuário: " + e.getMessage());
+        }
+        return false;
+    }
+
 }
