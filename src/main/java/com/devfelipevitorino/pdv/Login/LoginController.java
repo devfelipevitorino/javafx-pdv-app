@@ -6,10 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -26,21 +23,23 @@ public class LoginController {
     private TextField username_field;
     @FXML
     private TextField password_field;
+    @FXML
+    private Label label_user_senha_incorretos;
+    @FXML
+    private Button btn_cancelar;
 
     @FXML
     private void entrarNoSistema() {
         String nome = username_field.getText();
         String senha = password_field.getText();
+        label_user_senha_incorretos.setVisible(false);
 
         if (usuarioDAO.autenticarUsuario(nome, senha)) {
             uteis.exibirAlerta("Sucesso", "Login bem-sucedido!", Alert.AlertType.INFORMATION);
         } else {
-            uteis.exibirAlerta("Erro", "Credenciais inválidas!", Alert.AlertType.ERROR);
+            label_user_senha_incorretos.setVisible(true);
         }
     }
-
-    @FXML
-    private Button btn_cancelar;
 
     @FXML
     private void fecharTelaDeLogin() {
