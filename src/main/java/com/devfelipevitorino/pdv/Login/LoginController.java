@@ -1,7 +1,11 @@
 package com.devfelipevitorino.pdv.Login;
 
 import com.devfelipevitorino.pdv.DB.Usuario.UsuarioDAO;
+import com.devfelipevitorino.pdv.Uteis.Uteis;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -9,11 +13,14 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.io.IOException;
 import java.util.Optional;
 
 public class LoginController {
 
     private final UsuarioDAO usuarioDAO = new UsuarioDAO();
+
+    private final Uteis uteis = new Uteis();
 
     @FXML
     private Button btn_entrar;
@@ -28,19 +35,10 @@ public class LoginController {
         String senha = password_field.getText();
 
         if (usuarioDAO.autenticarUsuario(nome, senha)) {
-            exibirAlerta("Sucesso", "Login bem-sucedido!", Alert.AlertType.INFORMATION);
+            uteis.exibirAlerta("Sucesso", "Login bem-sucedido!", Alert.AlertType.INFORMATION);
         } else {
-            exibirAlerta("Erro", "Credenciais inválidas!", Alert.AlertType.ERROR);
+            uteis.exibirAlerta("Erro", "Credenciais inválidas!", Alert.AlertType.ERROR);
         }
-    }
-
-    private void exibirAlerta(String titulo, String mensagem, Alert.AlertType tipo) {
-        Alert alerta = new Alert(tipo);
-        alerta.setTitle(titulo);
-        alerta.setHeaderText(null);
-        alerta.setContentText(mensagem);
-        alerta.initStyle(StageStyle.TRANSPARENT);
-        alerta.showAndWait();
     }
 
     @FXML
@@ -69,7 +67,16 @@ public class LoginController {
 
     @FXML
     private void cadastrar() {
-        System.out.println("Clicando no label de cadastrar");
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/devfelipevitorino/pdv/cadastrar-view.fxml"));
+            Parent root = fxmlLoader.load();
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

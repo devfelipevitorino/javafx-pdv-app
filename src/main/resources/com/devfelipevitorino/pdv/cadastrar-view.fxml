@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" prefHeight="390.0" prefWidth="433.0" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.devfelipevitorino.pdv.Cadastrar.CadastroController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <children>
+        <Pane prefHeight="361.0" prefWidth="393.0" style="-fx-background-radius: 20px; -fx-background-color: #FFF;">
+            <effect>
+                <DropShadow blurType="GAUSSIAN" height="56.17" radius="24.655" width="44.45">
+                    <color>
+                        <Color opacity="0.33969464898109436" />
+                    </color>
+                </DropShadow>
+            </effect>
+            <children>
+                <Button fx:id="btn_cadastrar" focusTraversable="false" layoutX="28.0" layoutY="206.0" mnemonicParsing="false" onAction="#cadastrarUsuario" prefHeight="43.0" prefWidth="338.0" text="Cadastrar" textAlignment="CENTER" textFill="#6b6b6b" textOverrun="LEADING_ELLIPSIS">
+                    <font>
+                        <Font name="Noto Sans Lao Bold" size="18.0" />
+                    </font>
+                    <effect>
+                        <DropShadow>
+                            <color>
+                                <Color opacity="0.19847328960895538" />
+                            </color>
+                        </DropShadow>
+                    </effect>
+                </Button>
+                <Label layoutX="67.0" layoutY="106.0" text="Usuário" textFill="#6b6b6b">
+                    <font>
+                        <Font name="Noto Sans Lao Bold" size="16.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="username_field_cadastrar" focusTraversable="false" layoutX="141.0" layoutY="104.0" prefHeight="33.0" prefWidth="187.0">
+                    <effect>
+                        <DropShadow>
+                            <color>
+                                <Color opacity="0.19465649127960205" />
+                            </color>
+                        </DropShadow>
+                    </effect>
+                </TextField>
+                <ImageView fitHeight="21.0" fitWidth="30.0" layoutX="303.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@images/user-login-2.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="67.0" layoutY="146.0" text="Senha" textFill="#6b6b6b">
+                    <font>
+                        <Font name="Noto Sans Lao Bold" size="16.0" />
+                    </font>
+                </Label>
+                <PasswordField fx:id="password_field_cadastrar" focusTraversable="false" layoutX="141.0" layoutY="143.0" prefHeight="33.0" prefWidth="187.0">
+                    <effect>
+                        <DropShadow>
+                            <color>
+                                <Color opacity="0.19465649127960205" />
+                            </color>
+                        </DropShadow>
+                    </effect>
+                </PasswordField>
+                <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="303.0" layoutY="150.0" opacity="0.7" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@images/password-icon-2048x2048-db92yrsb.png" />
+                    </image>
+                </ImageView>
+                <Button fx:id="btn_cancelar_cadastrar" focusTraversable="false" layoutX="28.0" layoutY="264.0" mnemonicParsing="false" onAction="#fecharTelaCadastro" prefHeight="43.0" prefWidth="338.0" text="Cancelar" textAlignment="CENTER" textFill="#6b6b6b" textOverrun="LEADING_ELLIPSIS">
+                    <font>
+                        <Font name="Noto Sans Lao Bold" size="18.0" />
+                    </font>
+                    <effect>
+                        <DropShadow>
+                            <color>
+                                <Color opacity="0.19847328960895538" />
+                            </color>
+                        </DropShadow>
+                    </effect>
+                </Button>
+            <Label layoutX="94.0" layoutY="44.0" text="Área de Cadastro" textFill="#6b6b6b">
+               <font>
+                  <Font name="Noto Sans Lao Bold" size="24.0" />
+               </font>
+            </Label>
+            </children>
+        </Pane>
+    </children>
+</VBox>

@@ -8,4 +8,7 @@ module com.devfelipevitorino.pdv {
     opens com.devfelipevitorino.pdv to javafx.fxml;
     exports com.devfelipevitorino.pdv.Login;
     opens com.devfelipevitorino.pdv.Login to javafx.fxml;
+
+    exports com.devfelipevitorino.pdv.Cadastrar;
+    opens com.devfelipevitorino.pdv.Cadastrar to javafx.fxml;
 }
