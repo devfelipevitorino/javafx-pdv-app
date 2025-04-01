@@ -9,7 +9,17 @@ import java.sql.SQLException;
 
 public class UsuarioDAO {
 
+    public boolean validaCampos(String nome, String senha){
+        return nome != null && !nome.trim().isEmpty() && senha != null && !senha.trim().isEmpty();
+    }
+
+
     public boolean autenticarUsuario(String nome, String senha) {
+
+        if (!validaCampos(nome, senha)){
+            return false;
+        }
+
         String sql = "SELECT * FROM usuarios WHERE nome = ? AND senha = ?";
 
         try (Connection conn = Database.conectar();
@@ -29,6 +39,11 @@ public class UsuarioDAO {
     }
 
     public boolean salvarUsuario(String nome, String senha) {
+
+        if (!validaCampos(nome, senha)){
+            return false;
+        }
+
         String sql = "INSERT INTO usuarios (nome, senha) VALUES (?, ?)";
 
         try (Connection conn = Database.conectar();

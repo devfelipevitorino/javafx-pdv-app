@@ -23,8 +23,6 @@ public class LoginController {
     private final Uteis uteis = new Uteis();
 
     @FXML
-    private Button btn_entrar;
-    @FXML
     private TextField username_field;
     @FXML
     private TextField password_field;
@@ -70,8 +68,8 @@ public class LoginController {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/devfelipevitorino/pdv/cadastrar-view.fxml"));
             Parent root = fxmlLoader.load();
-
             Stage stage = new Stage();
+            stage.initStyle(StageStyle.UNDECORATED);
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {

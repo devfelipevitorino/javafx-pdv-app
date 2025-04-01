@@ -17,9 +17,7 @@ public class CadastroController {
     private final UsuarioDAO usuarioDAO = new UsuarioDAO();
 
     private final Uteis uteis = new Uteis();
-
-    @FXML
-    private Button btn_cadastrar;
+    
     @FXML
     private Button btn_cancelar_cadastrar;
 
