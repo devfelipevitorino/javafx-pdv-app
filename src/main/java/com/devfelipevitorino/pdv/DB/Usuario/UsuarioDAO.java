@@ -20,7 +20,7 @@ public class UsuarioDAO {
             return false;
         }
 
-        String sql = "SELECT * FROM usuarios WHERE nome = ? AND senha = ?";
+        String sql = "SELECT * FROM usuarios WHERE BINARY nome = ? AND BINARY senha = ?";
 
         try (Connection conn = Database.conectar();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
