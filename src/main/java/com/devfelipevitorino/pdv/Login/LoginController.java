@@ -35,7 +35,16 @@ public class LoginController {
         label_user_senha_incorretos.setVisible(false);
 
         if (usuarioDAO.autenticarUsuario(nome, senha)) {
-            uteis.exibirAlerta("Sucesso", "Login bem-sucedido!", Alert.AlertType.INFORMATION);
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/devfelipevitorino/pdv/tela-de-vendas.fxml"));
+                Parent root = fxmlLoader.load();
+                Stage stage = new Stage();
+                stage.initStyle(StageStyle.UTILITY);
+                stage.setScene(new Scene(root));
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         } else {
             label_user_senha_incorretos.setVisible(true);
         }
