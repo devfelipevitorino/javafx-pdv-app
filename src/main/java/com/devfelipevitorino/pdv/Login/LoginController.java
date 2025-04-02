@@ -27,6 +27,8 @@ public class LoginController {
     private Label label_user_senha_incorretos;
     @FXML
     private Button btn_cancelar;
+    @FXML
+    private Button btn_entrar;
 
     @FXML
     private void entrarNoSistema() {
@@ -41,7 +43,11 @@ public class LoginController {
                 Stage stage = new Stage();
                 stage.initStyle(StageStyle.UTILITY);
                 stage.setScene(new Scene(root));
+                stage.centerOnScreen();
                 stage.show();
+
+                Stage loginStage = (Stage) btn_entrar.getScene().getWindow();
+                loginStage.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
