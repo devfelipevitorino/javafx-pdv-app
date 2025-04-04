@@ -13,17 +13,32 @@ Com ele, você pode:
 
 ---
 
+## 🖥️ Imagens do Sistema  
+
+<details>
+  <summary>📸 Clique para visualizar as imagens do sistema</summary>
+
+  ### 🔑 Tela de Login  
+  ![Tela de Login](https://github.com/user-attachments/assets/29bfac33-9f7e-4891-8ec9-75742f7e9500)
+
+  ### 🛍️ Tela de Vendas  
+  ![Tela de Vendas](https://github.com/user-attachments/assets/ba8f10a1-3619-4fb5-8241-3c83fbf16202)
+
+</details>
+
+---
+
 ## 🛠️ Tecnologias Utilizadas  
-- **Backend:** Java com JDBC para interação com o banco de dados SQL
+- **Backend:** Java com JDBC para interação com o banco de dados SQL  
 - **Frontend:** JavaFX com SceneBuilder  
 - **Banco de Dados:** MySQL  
 
 ---
 
 ## 📝 Funcionalidades  
-- **Cadastro de Produtos**: Permite adicionar, editar e excluir produtos do estoque.
-- **Vendas**: Realiza transações e atualiza automaticamente o estoque.
-- **Login Seguro**: Utiliza autenticação simples para garantir a segurança do sistema.
+- **Cadastro de Produtos**: Permite adicionar, editar e excluir produtos do estoque.  
+- **Vendas**: Realiza transações e atualiza automaticamente o estoque.  
+- **Login Seguro**: Utiliza autenticação simples para garantir a segurança do sistema.  
 
 ---
 
