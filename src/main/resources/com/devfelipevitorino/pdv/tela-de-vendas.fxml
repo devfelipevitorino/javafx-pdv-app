@@ -142,7 +142,7 @@
                      </color>
                   </DropShadow>
                </effect></Button>
-            <Button fx:id="btn_sair" layoutX="29.0" layoutY="436.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="171.0" style="-fx-background-radius: 10px;" text="SAIR">
+            <Button fx:id="btn_sair" onMouseClicked="#fecharTelaVendas" layoutX="29.0" layoutY="436.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="171.0" style="-fx-background-radius: 10px;" text="SAIR">
                <font>
                   <Font name="Roboto Black" size="12.0" />
                </font>
