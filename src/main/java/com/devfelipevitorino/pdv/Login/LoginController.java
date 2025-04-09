@@ -53,6 +53,7 @@ public class LoginController {
             }
         } else {
             label_user_senha_incorretos.setVisible(true);
+            password_field.clear();
         }
     }
 
