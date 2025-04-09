@@ -61,7 +61,7 @@ public class LoginController {
     private void fecharTelaDeLogin() {
 
         Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
-        alerta.initStyle(StageStyle.TRANSPARENT);
+        alerta.initStyle(StageStyle.UNDECORATED);
         alerta.setTitle("Sair");
         alerta.setHeaderText("Deseja sair do sistema?");
 
