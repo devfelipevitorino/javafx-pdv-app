@@ -38,7 +38,7 @@ public class LoginController {
 
         if (usuarioDAO.autenticarUsuario(nome, senha)) {
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/devfelipevitorino/pdv/tela-de-vendas.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/devfelipevitorino/pdv/TelaDeVendas/tela-de-vendas.fxml"));
                 Parent root = fxmlLoader.load();
                 Stage stage = new Stage();
                 stage.initStyle(StageStyle.UTILITY);

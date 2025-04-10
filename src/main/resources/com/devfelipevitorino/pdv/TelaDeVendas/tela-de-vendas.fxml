@@ -211,7 +211,7 @@
                </effect></Pane>
             <ImageView fitHeight="306.0" fitWidth="389.0" layoutX="12.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/undraw_order-delivered_puaw.png" />
+                  <Image url="@../images/undraw_order-delivered_puaw.png" />
                </image>
             </ImageView>
             <Button fx:id="btn_cadastrar_mercadoria" layoutX="29.0" layoutY="391.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="354.0" style="-fx-background-radius: 10px;" text="CADASTAR MERCADORIA">
