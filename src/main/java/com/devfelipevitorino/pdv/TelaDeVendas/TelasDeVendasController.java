@@ -52,10 +52,14 @@ public class TelasDeVendasController {
     private void cadastrarMercadoria() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/devfelipevitorino/pdv/TelaDeVendas/cadastro_mercadoria.fxml"));
         Parent root = fxmlLoader.load();
-        Stage login = new Stage();
-        login.initStyle(StageStyle.UTILITY);
-        login.setScene(new Scene(root));
-        login.centerOnScreen();
-        login.show();
+
+        Stage cadastroStage = new Stage();
+        cadastroStage.initStyle(StageStyle.UTILITY);
+        cadastroStage.setTitle("Cadastro de Mercadoria");
+        cadastroStage.initModality(javafx.stage.Modality.APPLICATION_MODAL);
+        cadastroStage.initOwner(btn_cadastrar_mercadoria.getScene().getWindow());
+        cadastroStage.setScene(new Scene(root));
+        cadastroStage.centerOnScreen();
+        cadastroStage.showAndWait();
     }
 }

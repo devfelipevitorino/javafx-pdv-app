@@ -83,10 +83,17 @@ public class LoginController {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/devfelipevitorino/pdv/cadastrar-view.fxml"));
             Parent root = fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.initStyle(StageStyle.UNDECORATED);
-            stage.setScene(new Scene(root));
-            stage.show();
+
+            Stage cadastroStage = new Stage();
+            cadastroStage.initStyle(StageStyle.UTILITY);
+            cadastroStage.setTitle("Cadastrar novo usuário");
+
+            cadastroStage.initModality(javafx.stage.Modality.APPLICATION_MODAL);
+            cadastroStage.initOwner(btn_entrar.getScene().getWindow());
+
+            cadastroStage.setScene(new Scene(root));
+            cadastroStage.centerOnScreen();
+            cadastroStage.showAndWait();
         } catch (IOException e) {
             e.printStackTrace();
         }
