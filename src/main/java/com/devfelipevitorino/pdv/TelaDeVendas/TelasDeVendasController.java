@@ -15,6 +15,7 @@ import java.util.Optional;
 
 public class TelasDeVendasController {
 
+    public Button btn_cadastrar_mercadoria;
     @FXML
     private Button btn_sair;
 
@@ -45,5 +46,16 @@ public class TelasDeVendasController {
             login.centerOnScreen();
             login.show();
         }
+    }
+
+    @FXML
+    private void cadastrarMercadoria() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/devfelipevitorino/pdv/TelaDeVendas/cadastro_mercadoria.fxml"));
+        Parent root = fxmlLoader.load();
+        Stage login = new Stage();
+        login.initStyle(StageStyle.UTILITY);
+        login.setScene(new Scene(root));
+        login.centerOnScreen();
+        login.show();
     }
 }
