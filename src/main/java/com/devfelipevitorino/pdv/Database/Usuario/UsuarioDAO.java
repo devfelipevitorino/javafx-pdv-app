@@ -1,6 +1,6 @@
-package com.devfelipevitorino.pdv.DB.Usuario;
+package com.devfelipevitorino.pdv.Database.Usuario;
 
-import com.devfelipevitorino.pdv.DB.Database;
+import com.devfelipevitorino.pdv.Database.Configuration.Database;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

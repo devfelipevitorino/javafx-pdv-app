@@ -1,4 +1,4 @@
-package com.devfelipevitorino.pdv.DB;
+package com.devfelipevitorino.pdv.Database.Configuration;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -1,6 +1,6 @@
 package com.devfelipevitorino.pdv.TelaDeVendas;
 
-import com.devfelipevitorino.pdv.DB.Produtos.ProdutosDAO;
+import com.devfelipevitorino.pdv.Database.Produtos.ProdutosDAO;
 import com.devfelipevitorino.pdv.Uteis.Uteis;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -9,7 +9,7 @@ import javafx.stage.StageStyle;
 
 import java.util.Optional;
 
-public class CadastroMercadoria {
+public class CadastroMercadoriaController {
 
     private final ProdutosDAO dao = new ProdutosDAO();
     private final Uteis uteis = new Uteis();

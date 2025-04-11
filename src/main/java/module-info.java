@@ -6,12 +6,13 @@ module com.devfelipevitorino.pdv {
     requires java.sql;
 
     opens com.devfelipevitorino.pdv to javafx.fxml;
-    exports com.devfelipevitorino.pdv.Login;
-    opens com.devfelipevitorino.pdv.Login to javafx.fxml;
+    exports com.devfelipevitorino.pdv.Login.TelaDeLogin;
+    opens com.devfelipevitorino.pdv.Login.TelaDeLogin to javafx.fxml;
 
-    exports com.devfelipevitorino.pdv.Cadastrar;
-    opens com.devfelipevitorino.pdv.Cadastrar to javafx.fxml;
+    exports com.devfelipevitorino.pdv.Login.TelaCadastroUsuario;
+    opens com.devfelipevitorino.pdv.Login.TelaCadastroUsuario to javafx.fxml;
 
     exports com.devfelipevitorino.pdv.TelaDeVendas;
     opens com.devfelipevitorino.pdv.TelaDeVendas to javafx.fxml;
+    exports com.devfelipevitorino.pdv;
 }

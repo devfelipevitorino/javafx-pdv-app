@@ -1,4 +1,4 @@
-package com.devfelipevitorino.pdv.Login;
+package com.devfelipevitorino.pdv;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -8,10 +8,10 @@ import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
-public class LoginApplication extends Application {
+public class PdvApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(LoginApplication.class.getResource("/com/devfelipevitorino/pdv/login-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(PdvApplication.class.getResource("/com/devfelipevitorino/pdv/login-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setResizable(false);

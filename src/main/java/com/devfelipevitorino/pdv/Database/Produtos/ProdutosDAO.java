@@ -1,10 +1,9 @@
-package com.devfelipevitorino.pdv.DB.Produtos;
+package com.devfelipevitorino.pdv.Database.Produtos;
 
-import com.devfelipevitorino.pdv.DB.Database;
+import com.devfelipevitorino.pdv.Database.Configuration.Database;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ProdutosDAO {

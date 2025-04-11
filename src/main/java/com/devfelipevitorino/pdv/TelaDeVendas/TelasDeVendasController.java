@@ -62,4 +62,6 @@ public class TelasDeVendasController {
         cadastroStage.centerOnScreen();
         cadastroStage.showAndWait();
     }
+
+
 }

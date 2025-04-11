@@ -1,6 +1,6 @@
-package com.devfelipevitorino.pdv.Login;
+package com.devfelipevitorino.pdv.Login.TelaDeLogin;
 
-import com.devfelipevitorino.pdv.DB.Usuario.UsuarioDAO;
+import com.devfelipevitorino.pdv.Database.Usuario.UsuarioDAO;
 import com.devfelipevitorino.pdv.Uteis.Uteis;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

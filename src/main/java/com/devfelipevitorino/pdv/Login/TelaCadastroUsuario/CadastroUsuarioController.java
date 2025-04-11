@@ -1,6 +1,6 @@
-package com.devfelipevitorino.pdv.Cadastrar;
+package com.devfelipevitorino.pdv.Login.TelaCadastroUsuario;
 
-import com.devfelipevitorino.pdv.DB.Usuario.UsuarioDAO;
+import com.devfelipevitorino.pdv.Database.Usuario.UsuarioDAO;
 import com.devfelipevitorino.pdv.Uteis.Uteis;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -12,7 +12,7 @@ import javafx.stage.StageStyle;
 
 import java.util.Optional;
 
-public class CadastroController {
+public class CadastroUsuarioController {
 
     private final UsuarioDAO usuarioDAO = new UsuarioDAO();
 
