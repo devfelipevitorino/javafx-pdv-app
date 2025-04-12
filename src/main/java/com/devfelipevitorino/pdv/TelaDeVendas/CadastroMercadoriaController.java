@@ -1,6 +1,7 @@
 package com.devfelipevitorino.pdv.TelaDeVendas;
 
 import com.devfelipevitorino.pdv.Database.Produtos.ProdutosDAO;
+import com.devfelipevitorino.pdv.Model.Produto;
 import com.devfelipevitorino.pdv.Uteis.Uteis;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -38,21 +39,22 @@ public class CadastroMercadoriaController {
         String unidade = comboUnidade.getValue();
         String referencia = text_field_referencia.getText();
 
-        if(dao.salvarProduto(nome,descricao,preco,quantidade,unidade,referencia)){
+        Produto produto = new Produto(nome, descricao, preco, quantidade, referencia, unidade);
+
+        if (dao.salvarProduto(produto)) {
             uteis.exibirAlerta("Sucesso", "Mercadoria Cadastrada!", Alert.AlertType.INFORMATION);
             text_field_nome.clear();
             text_field_descricao.clear();
             text_field_preco.clear();
             text_field_quantidade.clear();
             text_field_referencia.clear();
-        }else {
-            uteis.exibirAlerta("Erro", "Mercadoria inválida!", Alert.AlertType.ERROR);
+        } else {
+            uteis.exibirAlerta("Erro", "Erro ao cadastrar mercadoria!", Alert.AlertType.ERROR);
         }
     }
 
     @FXML
     private void fecharTelaCadastroMercadoria() {
-
         Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
         alerta.initStyle(StageStyle.UNDECORATED);
         alerta.setHeaderText("Deseja sair?");
