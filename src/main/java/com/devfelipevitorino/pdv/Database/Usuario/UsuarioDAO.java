@@ -1,6 +1,8 @@
 package com.devfelipevitorino.pdv.Database.Usuario;
 
 import com.devfelipevitorino.pdv.Database.Configuration.Database;
+import com.devfelipevitorino.pdv.Model.Usuario;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,38 +11,37 @@ import java.sql.SQLException;
 
 public class UsuarioDAO {
 
-    public boolean validaCampos(String nome, String senha){
+    public boolean validaCampos(String nome, String senha) {
         return nome != null && !nome.trim().isEmpty() && senha != null && !senha.trim().isEmpty();
     }
 
-
-    public boolean autenticarUsuario(String nome, String senha) {
-
-        if (!validaCampos(nome, senha)){
+    public boolean autenticarUsuario(Usuario usuario) {
+        if (!validaCampos(usuario.getNome(), usuario.getSenha())) {
             return false;
         }
 
-        String sql = "SELECT * FROM usuarios WHERE BINARY nome = ? AND BINARY senha = ?";
+        String sql = "SELECT senha FROM usuarios WHERE BINARY nome = ?";
 
         try (Connection conn = Database.conectar();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setString(1, nome);
-            stmt.setString(2, senha);
-
+            stmt.setString(1, usuario.getNome());
             ResultSet rs = stmt.executeQuery();
 
-            return rs.next();
+            if (rs.next()) {
+                String senhaHash = rs.getString("senha");
+                return BCrypt.checkpw(usuario.getSenha(), senhaHash);
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
-            return false;
         }
+
+        return false;
     }
 
-    public boolean salvarUsuario(String nome, String senha) {
-
-        if (!validaCampos(nome, senha)){
+    public boolean salvarUsuario(Usuario usuario) {
+        if (!validaCampos(usuario.getNome(), usuario.getSenha())) {
             return false;
         }
 
@@ -49,16 +50,20 @@ public class UsuarioDAO {
         try (Connection conn = Database.conectar();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setString(1, nome);
-            stmt.setString(2, senha);
+            String senhaHash = BCrypt.hashpw(usuario.getSenha(), BCrypt.gensalt());
+
+            stmt.setString(1, usuario.getNome());
+            stmt.setString(2, senhaHash);
+
             stmt.executeUpdate();
             System.out.println("Usuário cadastrado com sucesso!");
             return true;
+
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("Erro ao cadastrar usuário: " + e.getMessage());
         }
+
         return false;
     }
-
 }
