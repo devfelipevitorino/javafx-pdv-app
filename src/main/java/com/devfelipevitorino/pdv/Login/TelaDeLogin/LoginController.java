@@ -1,6 +1,7 @@
 package com.devfelipevitorino.pdv.Login.TelaDeLogin;
 
 import com.devfelipevitorino.pdv.Database.Usuario.UsuarioDAO;
+import com.devfelipevitorino.pdv.Model.Usuario;
 import com.devfelipevitorino.pdv.Uteis.Uteis;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +17,7 @@ import java.util.Optional;
 public class LoginController {
 
     private final UsuarioDAO usuarioDAO = new UsuarioDAO();
+    Usuario usuario = new Usuario();
 
     private final Uteis uteis = new Uteis();
 
@@ -36,7 +38,10 @@ public class LoginController {
         String senha = password_field.getText();
         label_user_senha_incorretos.setVisible(false);
 
-        if (usuarioDAO.autenticarUsuario(nome, senha)) {
+        usuario.setNome(nome);
+        usuario.setSenha(senha);
+
+        if (usuarioDAO.autenticarUsuario(usuario)) {
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/devfelipevitorino/pdv/TelaDeVendas/tela-de-vendas.fxml"));
                 Parent root = fxmlLoader.load();
@@ -85,7 +90,7 @@ public class LoginController {
             Parent root = fxmlLoader.load();
 
             Stage cadastroStage = new Stage();
-            cadastroStage.initStyle(StageStyle.UTILITY);
+            cadastroStage.initStyle(StageStyle.UNDECORATED);
             cadastroStage.setTitle("Cadastrar novo usuário");
 
             cadastroStage.initModality(javafx.stage.Modality.APPLICATION_MODAL);

@@ -1,6 +1,7 @@
 package com.devfelipevitorino.pdv.Login.TelaCadastroUsuario;
 
 import com.devfelipevitorino.pdv.Database.Usuario.UsuarioDAO;
+import com.devfelipevitorino.pdv.Model.Usuario;
 import com.devfelipevitorino.pdv.Uteis.Uteis;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -15,8 +16,8 @@ import java.util.Optional;
 public class CadastroUsuarioController {
 
     private final UsuarioDAO usuarioDAO = new UsuarioDAO();
-
     private final Uteis uteis = new Uteis();
+    Usuario usuario = new Usuario();
 
     @FXML
     private Button btn_cancelar_cadastrar;
@@ -28,19 +29,28 @@ public class CadastroUsuarioController {
 
     @FXML
     private void cadastrarUsuario() {
-        String usuario = username_field_cadastrar.getText();
+        String nome = username_field_cadastrar.getText();
         String senha = password_field_cadastrar.getText();
 
-        if (usuarioDAO.salvarUsuario(usuario, senha)) {
-            uteis.exibirAlerta("Sucesso", "Usuario Cadastrado!", Alert.AlertType.INFORMATION);
+        usuario.setNome(nome);
+        usuario.setSenha(senha);
+
+        if (nome.isEmpty() || senha.isEmpty()) {
+            uteis.exibirAlerta("Erro", "Usuário e senha são obrigatórios!", Alert.AlertType.ERROR);
+            return;
+        }
+
+        if (usuarioDAO.salvarUsuario(usuario)) {
+            uteis.exibirAlerta("Sucesso", "Usuário Cadastrado!", Alert.AlertType.INFORMATION);
+            username_field_cadastrar.clear();
+            password_field_cadastrar.clear();
         } else {
-            uteis.exibirAlerta("Erro", "Credenciais inválidas!", Alert.AlertType.ERROR);
+            uteis.exibirAlerta("Erro", "Credenciais inválidas ou usuário já existente!", Alert.AlertType.ERROR);
         }
     }
 
     @FXML
     private void fecharTelaCadastro() {
-
         Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
         alerta.initStyle(StageStyle.UNDECORATED);
         alerta.setHeaderText("Deseja sair?");
@@ -57,5 +67,4 @@ public class CadastroUsuarioController {
             stage.close();
         }
     }
-
 }
