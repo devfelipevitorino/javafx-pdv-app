@@ -4,6 +4,7 @@ module com.devfelipevitorino.pdv {
 
     requires org.controlsfx.controls;
     requires java.sql;
+    requires jbcrypt;
 
     opens com.devfelipevitorino.pdv to javafx.fxml;
     exports com.devfelipevitorino.pdv.Login.TelaDeLogin;
