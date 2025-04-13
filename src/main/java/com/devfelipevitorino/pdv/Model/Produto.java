@@ -14,6 +14,10 @@ public class Produto {
     private Date dataCadastro;
     private Boolean ativo;
 
+    public Produto() {
+
+    }
+
     public Produto(String nome, String descricao, Double preco, Integer qtdEstoque, String referencia, String unidadeMedida) {
         this.nome = nome;
         this.descricao = descricao;

@@ -44,7 +44,7 @@
                      </font>
                   </Label>
                </children></Pane>
-            <Label layoutX="621.0" layoutY="14.0" text="QUANTIDADE">
+            <Label layoutX="603.0" layoutY="14.0" text="QUANTIDADE">
                <font>
                   <Font name="Roboto Bold Italic" size="24.0" />
                </font>
@@ -72,7 +72,7 @@
                   </DropShadow>
                </effect>
             </Pane>
-            <Label layoutX="1136.0" layoutY="14.0" text="REFERÊNCIA">
+            <Label layoutX="1135.0" layoutY="14.0" text="REFERÊNCIA">
                <font>
                   <Font name="Roboto Bold Italic" size="24.0" />
                </font>
@@ -240,6 +240,11 @@
                   </DropShadow>
                </effect>
             </Button>
+            <Label layoutX="221.0" layoutY="82.0" text="Pressione F2 para buscar um produto." textFill="#5b5b5b">
+               <font>
+                  <Font name="Roboto Condensed" size="12.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>
