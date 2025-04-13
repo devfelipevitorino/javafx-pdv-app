@@ -1,5 +1,6 @@
 package com.devfelipevitorino.pdv.TelaDeVendas;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -7,6 +8,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -15,7 +19,10 @@ import java.util.Optional;
 
 public class TelasDeVendasController {
 
-    public Button btn_cadastrar_mercadoria;
+    public Label label_f2;
+    @FXML
+    private Button btn_cadastrar_mercadoria;
+
     @FXML
     private Button btn_sair;
 
@@ -63,5 +70,19 @@ public class TelasDeVendasController {
         cadastroStage.showAndWait();
     }
 
+    @FXML
+    private void abrirTelaDeBusca() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/devfelipevitorino/pdv/TelaDeVendas/buscar_mercadoria.fxml"));
+        Parent root = fxmlLoader.load();
+
+        Stage buscaStage = new Stage();
+        buscaStage.initStyle(StageStyle.UTILITY);
+        buscaStage.setTitle("Busca de Mercadoria");
+        buscaStage.initModality(javafx.stage.Modality.APPLICATION_MODAL);
+        buscaStage.initOwner(btn_cadastrar_mercadoria.getScene().getWindow());
+        buscaStage.setScene(new Scene(root));
+        buscaStage.centerOnScreen();
+        buscaStage.showAndWait();
+    }
 
 }
