@@ -5,6 +5,7 @@ import com.devfelipevitorino.pdv.Model.Produto;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ProdutosDAO {
@@ -33,4 +34,38 @@ public class ProdutosDAO {
             return false;
         }
     }
+
+    public Produto buscarProduto(String comando) {
+        String sql = "SELECT * FROM produto WHERE nome LIKE ? OR descricao LIKE ? OR referencia LIKE ?";
+
+        try (Connection conn = Database.conectar();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            String termo = "%" + comando + "%";
+            stmt.setString(1, termo);
+            stmt.setString(2, termo);
+            stmt.setString(3, termo);
+
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                Produto produto = new Produto();
+                produto.setNome(rs.getString("nome"));
+                produto.setDescricao(rs.getString("descricao"));
+                produto.setReferencia(rs.getString("referencia"));
+                produto.setPreco(rs.getDouble("preco"));
+                produto.setQtdEstoque(rs.getInt("qtd_estoque"));
+                produto.setUnidadeMedida(rs.getString("unidade_medida"));
+                produto.setDataCadastro(rs.getTimestamp("data_cadastro"));
+                produto.setAtivo(rs.getBoolean("ativo"));
+
+                return produto;
+            }
+        } catch (SQLException e) {
+            System.err.println("Erro ao buscar produto: " + e.getMessage());
+        }
+
+        return null;
+    }
 }
+
