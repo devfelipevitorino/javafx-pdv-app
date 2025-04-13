@@ -45,14 +45,11 @@ public class LoginController {
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/devfelipevitorino/pdv/TelaDeVendas/tela-de-vendas.fxml"));
                 Parent root = fxmlLoader.load();
-                Stage stage = new Stage();
-                stage.initStyle(StageStyle.UTILITY);
-                stage.setScene(new Scene(root));
+                Stage stage = (Stage) btn_entrar.getScene().getWindow();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
                 stage.centerOnScreen();
                 stage.show();
-
-                Stage loginStage = (Stage) btn_entrar.getScene().getWindow();
-                loginStage.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
