@@ -5,6 +5,7 @@ import com.devfelipevitorino.pdv.Model.Produto;
 import com.devfelipevitorino.pdv.Uteis.Uteis;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -71,5 +72,4 @@ public class CadastroMercadoriaController {
             stage.close();
         }
     }
-
 }

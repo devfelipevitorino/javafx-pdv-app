@@ -11,6 +11,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -19,12 +20,17 @@ import java.util.Optional;
 
 public class TelasDeVendasController {
 
+    @FXML
     public Label label_f2;
+
     @FXML
     private Button btn_cadastrar_mercadoria;
 
     @FXML
     private Button btn_sair;
+
+    @FXML
+    private Button btn_cancelar_busca_mercadoria;
 
     @FXML
     private void fecharTelaVendas() throws IOException {
@@ -71,7 +77,7 @@ public class TelasDeVendasController {
     }
 
     @FXML
-    private void abrirTelaDeBusca() throws IOException {
+    public void abrirTelaDeBusca() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/devfelipevitorino/pdv/TelaDeVendas/buscar_mercadoria.fxml"));
         Parent root = fxmlLoader.load();
 
@@ -83,6 +89,24 @@ public class TelasDeVendasController {
         buscaStage.setScene(new Scene(root));
         buscaStage.centerOnScreen();
         buscaStage.showAndWait();
+    }
+
+    public void fecharTelaBuscaMercadoria(MouseEvent mouseEvent) {
+        Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
+        alerta.initStyle(StageStyle.UNDECORATED);
+        alerta.setHeaderText("Deseja sair?");
+
+        ButtonType buttonSim = new ButtonType("Sim");
+        ButtonType buttonNao = new ButtonType("Não");
+
+        alerta.getButtonTypes().setAll(buttonSim, buttonNao);
+
+        Optional<ButtonType> resultado = alerta.showAndWait();
+
+        if (resultado.isPresent() && resultado.get() == buttonSim) {
+            Stage stage = (Stage) btn_cancelar_busca_mercadoria.getScene().getWindow();
+            stage.close();
+        }
     }
 
 }

@@ -2,12 +2,15 @@ package com.devfelipevitorino.pdv.Login.TelaDeLogin;
 
 import com.devfelipevitorino.pdv.Database.Usuario.UsuarioDAO;
 import com.devfelipevitorino.pdv.Model.Usuario;
+import com.devfelipevitorino.pdv.TelaDeVendas.TelasDeVendasController;
 import com.devfelipevitorino.pdv.Uteis.Uteis;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -45,8 +48,21 @@ public class LoginController {
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/devfelipevitorino/pdv/TelaDeVendas/tela-de-vendas.fxml"));
                 Parent root = fxmlLoader.load();
-                Stage stage = (Stage) btn_entrar.getScene().getWindow();
+
                 Scene scene = new Scene(root);
+
+                scene.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
+                    if (event.getCode() == KeyCode.F2) {
+                        try {
+                            TelasDeVendasController controller = fxmlLoader.getController();
+                            controller.abrirTelaDeBusca();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+
+                Stage stage = (Stage) btn_entrar.getScene().getWindow();
                 stage.setScene(scene);
                 stage.centerOnScreen();
                 stage.show();
